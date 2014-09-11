@@ -14,6 +14,7 @@
 		ED82299119C253EF001B970C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED82299019C253EF001B970C /* Images.xcassets */; };
 		ED82299419C253EF001B970C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED82299219C253EF001B970C /* LaunchScreen.xib */; };
 		ED8229A019C253EF001B970C /* ROM_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82299F19C253EF001B970C /* ROM_TestTests.swift */; };
+		ED8229AA19C25452001B970C /* MotionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8229A919C25452001B970C /* MotionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		ED82299919C253EF001B970C /* ROM-TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ROM-TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED82299E19C253EF001B970C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED82299F19C253EF001B970C /* ROM_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROM_TestTests.swift; sourceTree = "<group>"; };
+		ED8229A919C25452001B970C /* MotionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +81,9 @@
 		ED82298319C253EF001B970C /* ROM-Test */ = {
 			isa = PBXGroup;
 			children = (
-				ED82298619C253EF001B970C /* AppDelegate.swift */,
-				ED82298B19C253EF001B970C /* ViewController.swift */,
-				ED82298D19C253EF001B970C /* Main.storyboard */,
+				ED8229AD19C254C7001B970C /* Controllers */,
+				ED8229AC19C254BF001B970C /* Views */,
+				ED8229AB19C254B8001B970C /* Models */,
 				ED82299019C253EF001B970C /* Images.xcassets */,
 				ED82299219C253EF001B970C /* LaunchScreen.xib */,
 				ED82298819C253EF001B970C /* ROM_Test.xcdatamodeld */,
@@ -113,6 +115,31 @@
 				ED82299E19C253EF001B970C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED8229AB19C254B8001B970C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		ED8229AC19C254BF001B970C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED82298D19C253EF001B970C /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		ED8229AD19C254C7001B970C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED8229A919C25452001B970C /* MotionController.swift */,
+				ED82298619C253EF001B970C /* AppDelegate.swift */,
+				ED82298B19C253EF001B970C /* ViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +245,7 @@
 				ED82298C19C253EF001B970C /* ViewController.swift in Sources */,
 				ED82298A19C253EF001B970C /* ROM_Test.xcdatamodeld in Sources */,
 				ED82298719C253EF001B970C /* AppDelegate.swift in Sources */,
+				ED8229AA19C25452001B970C /* MotionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,17 +7,38 @@
 //
 
 import UIKit
+import CoreMotion
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MotionControllerProtocol
+{
 
-    override func viewDidLoad() {
+    @IBOutlet var yawLabel: UILabel!
+    @IBOutlet var pitchLabel: UILabel!
+    @IBOutlet var rollLabel: UILabel!
+    
+    @IBOutlet var tenthLabel: UILabel!
+    @IBOutlet var wholeNumberLabel: UILabel!
+    
+    let motionManager = CMMotionManager()
+    let motionController = MotionController()
+    
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.motionController.delegate = self
+        self.motionController.getGyroData(motionManager)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func motionDataAvailable(yaw: Double, pitch:Double, roll:Double)
+    {
+        self.yawLabel.text = NSString(format:"%.2f", yaw)
+        self.pitchLabel.text = NSString(format:"%.2f", pitch)
+        self.rollLabel.text = NSString(format:"%.2f", roll)
+        
+        self.wholeNumberLabel.text = NSString(format:"%.0f", pitch)
+        self.tenthLabel.text = NSString(format:"%.2f", pitch)
     }
 
 
