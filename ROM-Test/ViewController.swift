@@ -29,6 +29,9 @@ class ViewController: UIViewController, MotionControllerProtocol
         self.motionController.delegate = self
         self.motionController.getGyroData(motionManager)
         
+
+
+        
     }
     
     func motionDataAvailable(yaw: Double, pitch:Double, roll:Double)
@@ -39,6 +42,8 @@ class ViewController: UIViewController, MotionControllerProtocol
         
         self.wholeNumberLabel.text = NSString(format:"%.0f", pitch)
         self.tenthLabel.text = NSString(format:"%.2f", pitch)
+        
+        println(pitch)
     }
 
 

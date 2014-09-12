@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 David Fry. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import CoreMotion
+
 
 protocol MotionControllerProtocol
 {
@@ -18,14 +20,13 @@ class MotionController: NSObject
 {
     var delegate: MotionControllerProtocol?
     
-    
     func getGyroData(motionManager:CMMotionManager)
     {
         motionManager.startDeviceMotionUpdates()
         
         if (motionManager.deviceMotionAvailable)
         {
-            motionManager.deviceMotionUpdateInterval = 0.01
+            motionManager.deviceMotionUpdateInterval = 1.0/60.0
             
             var queue = NSOperationQueue.currentQueue()
             
@@ -34,7 +35,7 @@ class MotionController: NSObject
                     deviceManager, error in
                     var attitude = motionManager.deviceMotion.attitude
                     //self.delegate?.motionDataAvailable(attitude.yaw * 180 / M_PI, pitch: attitude.pitch * 180 / M_PI, roll: attitude.roll * 180 / M_PI)
-                    self.delegate?.motionDataAvailable(attitude.yaw, pitch: attitude.pitch, roll: attitude.roll)
+                    self.delegate?.motionDataAvailable(attitude.yaw, pitch: self.radiansToDegrees(attitude.pitch), roll: attitude.roll)
                     
                     if (error != nil)
                     {
@@ -51,6 +52,14 @@ class MotionController: NSObject
             alert.addButtonWithTitle("Ok")
             alert.show()
         }
+    }
+    
+    func radiansToDegrees(radians:Double) ->Double
+    {
+
+        var degrees = (radians * M_PI)
+        
+        return degrees
     }
     
 }
